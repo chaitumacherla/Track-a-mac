@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+import time
+from datetime import datetime
+import sqlite3
+from easysnmp import Session
+from sqlite3 import Error
+
+VL = 'DEFAULT_VLAN(1)'
+def  create_connection(db_file):
+    """ create a database connection to a SQLite database """
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+    except Error as e:
+        print(e)
+    finally:
+        if conn:
+            data = conn.execute('Select * from switches')
+            for items in data:
+                ip = items[0]; port=int(items[1]); community=items[2]; version=int(items[3])
+                probe_device(ip, port, community,version, conn)
