@@ -6,15 +6,15 @@ if (empty($_GET)) {
     echo "FALSE";
     }
 else {
-    $addr = htmlspecialchars($_GET["mac_address"]);
+    $addr = htmlspecialchars($_GET["mac"]);
     $sql = <<<EOF
-              SELECT * FROM List WHERE MACS LIKE "%$addr%" ORDER BY MAC_address;
+              SELECT * FROM List WHERE MACS LIKE "%$addr%" ORDER BY MACS;
 EOF;
     $find = $db->query($sql);
     $arr = array(); 
     while($row = $find->fetchArray(SQLITE3_ASSOC) ){
          #echo $row[1]. "|" . $row[2] . "|" . $row[3] . "|" . $row[4] . "\n";
-         $arr[] = $row['Device']. " | " . $row['VLANS'] . " | " . $row['port_number'] . " | " . "$address";
+         $arr[] = $row['Device']. " | " . $row['VLANS'] . " | " . $row['port'] . " | " . "$address";
      
     }
 
