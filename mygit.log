@@ -1,4 +1,22 @@
 Author: chaitumacherla <chaitumacherla98@gmail.com>
+Date:   Sun May 31 21:20:24 2020 +0200
+
+    rectified errors
+
+commit b05e3c47ac9389eb7401ac329679852033aba5c2
+Author: chaitumacherla <chaitumacherla98@gmail.com>
+Date:   Sun May 31 18:14:51 2020 +0200
+
+    resolved errors
+
+commit 032a4adc6d47995760de9b4975177977169248a0
+Author: chaitumacherla <chaitumacherla98@gmail.com>
+Date:   Sun May 31 14:47:09 2020 +0200
+
+    added git log
+
+commit 1efad139403bf5986b6dfdfcebfb1ca0ff929934
+Author: chaitumacherla <chaitumacherla98@gmail.com>
 Date:   Sun May 31 14:44:09 2020 +0200
 
     removed erros
@@ -92,3 +110,4 @@ Author: chaitumacherla <51096432+chaitumacherla@users.noreply.github.com>
 Date:   Thu May 28 23:19:37 2020 +0200
 
     Initial commit
+(END)
