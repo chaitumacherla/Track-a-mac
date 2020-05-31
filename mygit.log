@@ -1,0 +1,94 @@
+Author: chaitumacherla <chaitumacherla98@gmail.com>
+Date:   Sun May 31 14:44:09 2020 +0200
+
+    removed erros
+
+commit 9e89a850377f5544ec381c561c8ee263589cbd89
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sun May 31 12:22:43 2020 +0200
+
+    resolved errors
+
+commit 2021685b82773130eb75a48e0bbfb41bfd3b2b6e
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sun May 31 12:15:04 2020 +0200
+
+    resolved errors
+
+commit 488b29c21056c62d93972789090ac2b963647642
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sun May 31 11:59:25 2020 +0200
+
+    conitnued backend program
+
+commit 80d7614cd4446907950bd858b5d132e5f76e3a77
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sun May 31 11:45:17 2020 +0200
+
+    added probing function
+
+commit b1f5b321c956880e98da38bcadca1a6fce2c155d
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sat May 30 18:27:22 2020 +0200
+
+    started backend file
+
+commit 80013eeaadb54bdadddb4f04c520c8d37bf7dfd9
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Sat May 30 00:41:23 2020 +0200
+
+    added listdevs file
+
+commit 79c36ba869702f9ab622ab8f5fd1c2f53415e244
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Fri May 29 23:54:06 2020 +0200
+
+    added search file to search for devices
+
+commit de1862ac71b9abd0989e53d4ecb55346bd07840d
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Fri May 29 22:10:10 2020 +0200
+
+    added list file
+
+commit 7a97f608685c86cd1fbf601d9e3af8e51d05e14c
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Fri May 29 18:26:37 2020 +0200
+
+    added remove file to remove devices if any
+
+commit 3becdcc44de2d570b7f1444f0ac714e960cfa8c6
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Fri May 29 02:44:12 2020 +0200
+
+    added add device to add devices to our project
+
+commit 13ebe66baded824f3f5cf0df32d45b2dbfa02742
+Author: chaitumacherla <51096432+chaitumacherla@users.noreply.github.com>
+Date:   Thu May 28 23:33:43 2020 +0200
+
+    Rename config to config.php
+
+commit 1d47a037513c6b70c03826e4dd3fde8516789640
+Author: chaitumacherla <51096432+chaitumacherla@users.noreply.github.com>
+Date:   Thu May 28 23:33:22 2020 +0200
+
+    Delete config.php
+
+commit 90d029f05dd3dab8d3366ef8c26e0c98b94e748f
+Author: chaitumacherla <mct.chaitanya345@gmail.com>
+Date:   Thu May 28 23:29:19 2020 +0200
+
+    created database in config file
+
+commit 00b54985565f1513f18b05dc34317ef6ab74ba09
+Author: chaitumacherla <51096432+chaitumacherla@users.noreply.github.com>
+Date:   Thu May 28 23:21:05 2020 +0200
+
+    Create config.php
+
+commit 7d3052dccee23416bb16f39857b4328c7dd259ea
+Author: chaitumacherla <51096432+chaitumacherla@users.noreply.github.com>
+Date:   Thu May 28 23:19:37 2020 +0200
+
+    Initial commit
