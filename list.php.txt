@@ -1,5 +1,5 @@
 <?php
-  include('config.php.txt');
+  include('config.php');
  
    $sql =<<<EOF
       SELECT * from List;

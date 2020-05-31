@@ -1,6 +1,6 @@
 <?php
 
-include_once('config.php.txt');
+include_once('config.php');
 
 $ip = $_GET['ip'];
 $port = $_GET['port'];
