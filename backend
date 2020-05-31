@@ -42,4 +42,69 @@ def probe_device(ip, port, community, version, conn):
         conn.execute("update switches set failed_attempts=? where (ip=? and port=?)",(failed_attempts,ip,port))
         conn.commit()
     start = str(datetime.fromtimestamp(int(time.time())))
-
+    try:
+        macs = session.walk(oids['dot1dTpFdbEntryAddress'])
+        ports = session.walk(oids['dot1dTpFdbEntryPort'])
+        for m,p in zip(macs, ports):
+            oid = m.oid;oid_index = m.oid_index;snmp_type=m.snmp_type
+            mac = ':'.join('{:02x}'.format(ord(a)) for a in m.value)
+            portval = p.value
+          #  print(ip,mac,portval)
+            data = conn.execute("SELECT * from List where (port=? and Device=?)",(portval,ip))
+            fetch_data = data.fetchall()
+            for connected_macs in fetch_data:
+                m = connected_macs[3]
+            if len(fetch_data)==0:
+           #     print(ip,mac,portval)
+                conn.execute('''INSERT INTO List(Device, VLANS, port, MACS) values (?,?,?,?)''',(ip,VL,portval,mac))
+                conn.commit()
+            elif len(fetch_data)==1 and m.find(mac)==-1:
+                finalmac = m+","+mac
+                conn.execute("UPDATE List set MACS=? where port=?",(finalmac,portval))
+                conn.commit()
+        vlansnum = []
+        vlanname = []
+        vlans = session.walk(oids['vlans'])
+        vlanindex = session.walk(oids['dot1qVlanStaticName'])
+        values = []
+        vlan_oids = []
+        for index, vlan in zip(vlanindex, vlans):
+            value = ':'.join('{:02x}'.format(ord(x)) for x in vlan.value)
+            values = value.split(':')
+            oid = vlan.oid
+            vlan_oids.append(oid)
+            vname = index.value
+            vnums = oid.split('.')
+            vnum = str(vnums[-1])
+            combine = ''
+            if vname != VL:
+                for i in range(len(values)):
+                    hexlist = values
+                    mac_hex = hexlist[i]
+                    scale = 16
+                    no_of_bits = 8
+                    orghex = bin(int(mac_hex, scale))[2:].zfill(no_of_bits)
+                    combine = combine + str(orghex)
+                    orghex = ''
+                    listvls = list(combine)
+                for i in range(len(listvls)):
+                    if listvls[i] == '1':
+                        num = i + 1
+                        vlanname.append(str(vname) + '(' + vnum + ')')
+                        vlansnum.append(num)
+        for i in range(len(vlansnum)):
+            portlan = '1'
+            conn.execute("update List set VLANS = ? where port=?", (vlanname[i],vlansnum[i]))
+            conn.commit()
+    except Exception as e:
+        print(str(e)+' '+str(ip)+":"+str(port))
+    finish = str(datetime.fromtimestamp(int(time.time())))
+  #  print(finish)
+   # print('ok!')
+    conn.execute("update switches set first_probetime=?, latest_probetime=? where (ip=? and port=?)",(start, finish, ip, port))
+    conn.commit()
+  #  print("Db updated!")
+if  __name__=='__main__':
+    while True:
+        create_connection('groupy.db')
+        time.sleep(60)
