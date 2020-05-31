@@ -2,8 +2,8 @@
 
 include_once('config.php');
 
-$ip = $_GET['ip_address'];
-$port = $_GET['port_number'];
+$ip = $_GET['ip'];
+$port = $_GET['port'];
 $community = $_GET['community'];
 $version = $_GET['version'];
 

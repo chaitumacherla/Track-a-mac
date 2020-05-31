@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import easysnmp
 import time
 from datetime import datetime
 import sqlite3
@@ -21,7 +21,7 @@ def  create_connection(db_file):
                 ip = items[0]; port=int(items[1]); community=items[2]; version=int(items[3])
                 probe_device(ip, port, community,version, conn)
 
-             conn.close()
+            conn.close()
 def probe_device(ip, port, community, version, conn):
     oids = {'dot1dTpFdbEntryAddress':'1.3.6.1.2.1.17.4.3.1.1',
             'dot1dTpFdbEntryPort':'1.3.6.1.2.1.17.4.3.1.2',
@@ -42,6 +42,7 @@ def probe_device(ip, port, community, version, conn):
         conn.execute("update switches set failed_attempts=? where (ip=? and port=?)",(failed_attempts,ip,port))
         conn.commit()
     start = str(datetime.fromtimestamp(int(time.time())))
+  #  print(start)
     try:
         macs = session.walk(oids['dot1dTpFdbEntryAddress'])
         ports = session.walk(oids['dot1dTpFdbEntryPort'])
@@ -103,7 +104,7 @@ def probe_device(ip, port, community, version, conn):
    # print('ok!')
     conn.execute("update switches set first_probetime=?, latest_probetime=? where (ip=? and port=?)",(start, finish, ip, port))
     conn.commit()
-  #  print("Db updated!")
+  #  print("Database updated!")
 if  __name__=='__main__':
     while True:
         create_connection('chaitu.db')
