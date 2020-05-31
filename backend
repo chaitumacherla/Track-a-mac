@@ -106,5 +106,5 @@ def probe_device(ip, port, community, version, conn):
   #  print("Db updated!")
 if  __name__=='__main__':
     while True:
-        create_connection('groupy.db')
+        create_connection('chaitu.db')
         time.sleep(60)
